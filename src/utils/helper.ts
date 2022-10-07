@@ -1,6 +1,4 @@
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-dayjs.extend(utc);
+import { IData } from "../types";
 
 export const errorFormatter = (error: any) => {
   const message =
@@ -11,9 +9,22 @@ export const errorFormatter = (error: any) => {
 
   return message;
 };
- 
 
-export function getDateWithFormat(date: Date) {
-  return dayjs.utc(date).format("MMM DD, YYYY");
-}
- 
+export const convertTime12to24 = (time12h: string) => {
+  let [hours, minutes, modifier]: any = time12h.split(/\W+/);
+
+  if (hours === "12") hours = "00";
+  if (modifier === "PM") hours = parseInt(hours, 10) + 12;
+
+  return [hours, minutes];
+};
+
+export const dateSorter = (array: IData[], order: "asc" | "desc") => {
+  const result = array.sort((a, b) => {
+    const [h1, m1]: any = convertTime12to24(a.time);
+    const [h2, m2]: any = convertTime12to24(b.time);
+
+    return order === "desc" ? h2 - h1 || m2 - m1 : h1 - h2 || m1 - m2;
+  });
+  return result;
+};

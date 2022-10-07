@@ -1,9 +1,9 @@
 export interface IData {
-  id: string;
+  id: string | number;
   first_name: string;
   last_name: string;
   email: string;
-  gender: "Female" | "Male" | "Non-binary";
+  gender: string;
   ip_address: string;
   time: string;
 }
