@@ -1,4 +1,4 @@
-import { IData } from "@/src/types";
+import { IData } from "../../../src/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface IState {

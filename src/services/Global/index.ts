@@ -1,4 +1,4 @@
-import { IData } from "@/src/types";
+import { IData } from "../../types";
 import { get } from "../serverConfig";
 import Services from "../serviceUrls";
 

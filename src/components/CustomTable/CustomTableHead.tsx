@@ -1,4 +1,4 @@
-import { IData } from "@/src/types";
+import { IData } from "../../types";
 import Box from "@mui/material/Box";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";

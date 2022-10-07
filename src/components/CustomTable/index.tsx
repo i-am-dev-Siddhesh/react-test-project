@@ -55,8 +55,8 @@ export const CustomTable = ({ data }: { data: IData[] }) => {
   const [order, setOrder] = React.useState<Order>("asc");
   const [orderBy, setOrderBy] = React.useState<keyof IData>("id");
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
   // We sorting the data and data is not  mutatable so we need to do this
   let rows = data.slice();
 
@@ -135,7 +135,7 @@ export const CustomTable = ({ data }: { data: IData[] }) => {
         </TableContainer>
 
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[10, 15, 25]}
           component="div"
           count={rows.length}
           rowsPerPage={rowsPerPage}
