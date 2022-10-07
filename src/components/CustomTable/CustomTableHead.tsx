@@ -33,7 +33,7 @@ const CustomTableHead = (props: ICustomTableHeadProps) => {
           {headCells.map((headCell: IHeadCell) => (
             <TableCell
               key={headCell.id}
-              align="right"
+              align="left"
               sortDirection={orderBy === headCell.id ? order : false}
             >
               <TableSortLabel
