@@ -6,7 +6,7 @@ import axios, {
 import { SERVER_API_KEY, SERVER_URL } from "../utils/constants";
 
 const instance = axios.create({
-  baseURL: 'http://localhost:8000/v1/' as string,
+  baseURL: SERVER_URL as string,
   timeout: 10000,
 
   headers: {
