@@ -22,7 +22,7 @@ const Home: FC = (): ReactElement => {
       .catch((_resp) => {
         dispatch(setLatestData([]));
       });
-  }, []);
+  }, [dispatch]);
 
   return (
     <BasicLayout>
