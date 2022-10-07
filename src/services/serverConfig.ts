@@ -3,12 +3,14 @@ import axios, {
   AxiosResponse,
   AxiosResponseTransformer,
 } from "axios";
+import { SERVER_API_KEY, SERVER_URL } from "../utils/constants";
 
 const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_SERVER_API_URL as string,
+  baseURL: 'http://localhost:8000/v1/' as string,
   timeout: 10000,
+
   headers: {
-    apikey: process.env.NEXT_PUBLIC_SERVER_API_KEY as string,
+    apikey: SERVER_API_KEY as string,
     Accept: "application/json",
     "content-type": "application/json",
   },

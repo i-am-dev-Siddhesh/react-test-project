@@ -1,5 +1,5 @@
-const Services = { 
-  
- } as const;
+const Services = {
+  mockdata: "mockdata",
+} as const;
 
 export default Services;

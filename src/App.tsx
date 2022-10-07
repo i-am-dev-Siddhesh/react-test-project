@@ -3,12 +3,11 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import theme from "./theme";
 
-function App() {
+function App() {  
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
         <CssBaseline />
-
         <Router>
           <Routes>
             {appRoutes.map((route) => (
