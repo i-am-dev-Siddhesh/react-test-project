@@ -45,3 +45,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 # react-test-project
+
+# Configure .env file  ( from  backend server )
+1. REACT_APP_API_URL
+2. REACT_APP_API_KEY

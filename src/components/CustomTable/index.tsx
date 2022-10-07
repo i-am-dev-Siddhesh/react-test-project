@@ -32,7 +32,7 @@ export const CustomTable = ({ data }: { data: IData[] }) => {
     setOrderBy(property);
   };
 
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (_event: unknown, newPage: number) => {
     setPage(newPage);
   };
 
