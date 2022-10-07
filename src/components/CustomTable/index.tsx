@@ -7,53 +7,15 @@ import TableContainer from "@mui/material/TableContainer";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import * as React from "react";
-import { IData } from "../../types/index";
+import { headCells } from "../../columns";
+import { IData, TOrder } from "../../types/index";
 import { dateSorter } from "../../utils/helper";
 import CustomTableHead from "./CustomTableHead";
 import CustomToolBar from "./CustomToolBar";
 
-type Order = "asc" | "desc";
-
-interface HeadCell {
-  id: string;
-  label: string;
-}
-
-const headCells: readonly HeadCell[] = [
-  {
-    id: "id",
-    label: "ID",
-  },
-  {
-    id: "first_name",
-    label: "First Name",
-  },
-  {
-    id: "last_name",
-    label: "Last Name",
-  },
-  {
-    id: "email",
-    label: "Email",
-  },
-
-  {
-    id: "gender",
-    label: "Gender",
-  },
-  {
-    id: "ip_address",
-    label: "IP Address",
-  },
-  {
-    id: "time",
-    label: "Time",
-  },
-];
-
 export const CustomTable = ({ data }: { data: IData[] }) => {
-  const [order, setOrder] = React.useState<Order>("asc");
-  const [orderBy, setOrderBy] = React.useState<keyof IData>("id");
+  const [order, setOrder] = React.useState<TOrder>("asc");
+  const [orderBy, setOrderBy] = React.useState<IData["time"]>("time");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -62,11 +24,11 @@ export const CustomTable = ({ data }: { data: IData[] }) => {
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
-    property: keyof IData
+    property: IData["time"]
   ) => {
-    const isAsc = orderBy === property && order === "asc";
+    const newOrder = order === "asc" ? "desc" : "asc";
 
-    setOrder(isAsc ? "desc" : "asc");
+    setOrder(newOrder);
     setOrderBy(property);
   };
 

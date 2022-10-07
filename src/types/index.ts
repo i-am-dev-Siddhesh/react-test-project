@@ -7,3 +7,5 @@ export interface IData {
   ip_address: string;
   time: string;
 }
+
+export type TOrder = "asc" | "desc";

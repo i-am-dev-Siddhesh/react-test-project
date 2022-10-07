@@ -19,7 +19,10 @@ export const convertTime12to24 = (time12h: string) => {
   return [hours, minutes];
 };
 
-export const dateSorter = (array: IData[], order: "asc" | "desc") => {
+export const dateSorter = (array: IData[], order: "asc" | "desc" | "") => {
+  if (!order) {
+    return array;
+  }
   const result = array.sort((a, b) => {
     const [h1, m1]: any = convertTime12to24(a.time);
     const [h2, m2]: any = convertTime12to24(b.time);

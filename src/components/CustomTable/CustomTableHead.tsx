@@ -1,4 +1,4 @@
-import { IData } from "../../types";
+import { IData, TOrder } from "../../types";
 import Box from "@mui/material/Box";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
@@ -6,24 +6,23 @@ import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import { visuallyHidden } from "@mui/utils";
 import * as React from "react";
-
-type Order = "asc" | "desc";
+import { IHeadCell } from "../../columns";
 
 interface ICustomTableHeadProps {
   onRequestSort: (
     event: React.MouseEvent<unknown>,
-    property: keyof IData
+    property:IData["time"]
   ) => void;
-  order: Order;
+  order: TOrder;
   orderBy: string;
   rowCount: number;
-  headCells: any;
+  headCells: readonly IHeadCell[];
 }
 
 const CustomTableHead = (props: ICustomTableHeadProps) => {
   const { order, orderBy, onRequestSort, headCells } = props;
   const createSortHandler =
-    (property: keyof IData) => (event: React.MouseEvent<unknown>) => {
+    (property: IData["time"]) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
 
@@ -31,10 +30,10 @@ const CustomTableHead = (props: ICustomTableHeadProps) => {
     <>
       <TableHead>
         <TableRow>
-          {headCells.map((headCell: any) => (
+          {headCells.map((headCell: IHeadCell) => (
             <TableCell
               key={headCell.id}
-              align={headCell.numeric ? "right" : "left"}
+              align="right"
               sortDirection={orderBy === headCell.id ? order : false}
             >
               <TableSortLabel
